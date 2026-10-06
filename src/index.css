@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-base-900 text-slate-100 antialiased;
+    overscroll-behavior: none;
+  }
+
+  /* Safe area support for iPhone */
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .safe-left {
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+  .safe-right {
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-base-800/80 backdrop-blur-xl border border-white/5;
+  }
+
+  .glass-card {
+    @apply bg-base-750/60 backdrop-blur-xl border border-white/5 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-200 hover:border-primary-500/30 hover:bg-base-700/60;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500 text-base-900 font-semibold rounded-xl px-5 py-3 transition-all duration-200 active:scale-[0.97] hover:shadow-lg hover:shadow-primary-500/20;
+  }
+
+  .btn-ghost {
+    @apply bg-white/5 text-slate-200 font-medium rounded-xl px-5 py-3 transition-all duration-200 active:scale-[0.97] hover:bg-white/10 border border-white/5;
+  }
+
+  .btn-danger {
+    @apply bg-error-500/15 text-error-400 font-semibold rounded-xl px-5 py-3 transition-all duration-200 active:scale-[0.97] hover:bg-error-500/25 border border-error-500/20;
+  }
+
+  .input-field {
+    @apply w-full bg-base-800/80 border border-white/10 rounded-xl px-4 py-3.5 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/10 transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-wider text-slate-500;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.02) 75%);
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/20;
+}
+
+/* Prevent text selection on UI elements */
+button, nav, .no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Vibrant dopamine gradients */
+.gradient-dopamine {
+  background: linear-gradient(135deg, #00e5ff, #8b5cf6, #ff3d77, #f59e0b);
+  background-size: 300% 300%;
+  @apply animate-gradient-shift;
+}
+
+.gradient-hot {
+  background: linear-gradient(135deg, #ff3d77, #ff6b9d);
+}
+
+.gradient-cool {
+  background: linear-gradient(135deg, #00e5ff, #0ea5e9);
+}
+
+.gradient-money {
+  background: linear-gradient(135deg, #84cc16, #10b981);
+}
+
+.gradient-game {
+  background: linear-gradient(135deg, #8b5cf6, #00e5ff);
+}
+
+.gradient-live {
+  background: linear-gradient(135deg, #ef4444, #ff3d77);
+}
+
+.text-gradient-dopamine {
+  background: linear-gradient(135deg, #00e5ff, #8b5cf6, #ff3d77);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-hot {
+  background: linear-gradient(135deg, #ff3d77, #ff6b9d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-money {
+  background: linear-gradient(135deg, #84cc16, #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+}
+.glow-hot {
+  box-shadow: 0 0 20px rgba(255, 61, 119, 0.3);
+}
+.glow-money {
+  box-shadow: 0 0 20px rgba(132, 204, 22, 0.3);
+}
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Live indicator dot */
+.live-dot {
+  @apply inline-block w-2 h-2 rounded-full bg-error-500 animate-live-pulse;
+}
