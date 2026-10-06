@@ -1,0 +1,3 @@
+[functions.kelo-brain]
+verify_jwt = true
+entrypoint = "./functions/kelo-brain/index.ts"
